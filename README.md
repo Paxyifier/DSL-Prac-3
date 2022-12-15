@@ -3,3 +3,4 @@ Perform various Hashing techniques with linear probe and collision resolution sc
 
 ## Write-Ups
  - write time & space complexity for hashing algorithms
+ - explain 4 types of hashing.
