@@ -19,10 +19,6 @@ protected:
             }
         }
         return -1;
-        // mod
-        // mid square
-        // multiplication
-        // folding
     }
     int findCollision(int hash, int k)
     {
