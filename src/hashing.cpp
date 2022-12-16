@@ -29,7 +29,7 @@ protected:
             }
         }
     }
-    int removeCollision(int hash, int k){
+    int removeCollision(int hash, int k, bool remove = false){
         for (int i = hash+1; i < LEN; i++)
         {
             if (this->hash(arr[i])==hash){
@@ -104,7 +104,7 @@ public:
             return 1;
         }
         else {
-            this->removeCollision(hash,k);
+            this->removeCollision(hash,k,true);
         }
     }
 };
