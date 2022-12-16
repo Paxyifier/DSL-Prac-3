@@ -100,6 +100,7 @@ public:
         int hash = this->hash(k);
         if (arr[hash] == k){
             arr[hash] = NULL;
+            this->removeCollision(hash, k);
             return 1;
         }
         else {
@@ -147,6 +148,9 @@ int main()
                 op = hashArray.search(k);
                 if (op == -1) {
                     cout << "Element not found" << endl;
+                }
+                else {
+                    cout << "Element found at index : " << op << endl;
                 }
                 break;
             }
