@@ -1,5 +1,6 @@
 #define TABLE_SIZE 10
-
+#include <iostream>
+using namespace std;
 int hashTable[TABLE_SIZE];
 
 int hashFunction1(int key) {
