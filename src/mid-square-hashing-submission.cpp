@@ -1,13 +1,28 @@
 #include <iostream>
+#include <string.h>
+#include<math.h>
 using namespace std;
-const int LEN = 29;
+const int LEN = 100;
 class HashArray
 {
 protected:
-    int arr[29] = {NULL};
+    int arr[LEN];
+    int countDigit(int num){
+        int i = 0;
+        while (num != 0){
+            i++;
+            num/=10;
+        }
+        return i;
+    }
     int hash(int x)
     {
-        return arr[x] % LEN;
+        int square = x*x;
+        int count = this->countDigit(square);
+        if (count>2){
+            return fmod(square, pow(10,count/2+1))/ pow(10,count/2-1);
+        }
+        return square;
     }
     int insertCollision(int hash)
     {
@@ -32,9 +47,8 @@ protected:
 
 public:
     HashArray(){
-        for(int i = 0;i<LEN;i++){
-            this->arr[i]= NULL;
-        }
+        for(int i = 0;i<LEN;i++)
+            this->arr[i]=NULL;
     }
     void insert(int x)
     {
@@ -52,7 +66,7 @@ public:
             }
             else
             {
-                cout << "Cannot add hash due to collision with other members" << endl;
+                 cout << "Cannot add hash due to collision with other members" <<  endl;
             }
         }
     }
@@ -62,10 +76,10 @@ public:
         {
             if (arr[i] != NULL)
             {
-                cout << arr[i] << " ";
+                 cout << arr[i] << " ";
             }
         }
-        cout << endl;
+         cout <<  endl;
     }
     int search(int k)
     {
@@ -92,10 +106,10 @@ int main()
     HashArray hashArray;
     while (run)
     {
-        cout << "1. Insert" << endl;
-        cout << "2. Display" << endl;
-        cout << "3. Search" << endl;
-        cout << "4. Exit" << endl;
+        cout << "1. Insert" <<  endl;
+        cout << "2. Display" <<  endl;
+        cout << "3. Search" <<  endl;
+        cout << "4. Exit" <<  endl;
         cout << "Enter your choice: " ;
         int choice;
         cin >> choice;
@@ -104,14 +118,14 @@ int main()
             case 1:
             {
                 int x;
-                cout << "Enter the element to be inserted : " ;
-                cin >> x;
+                 cout << "Enter the element to be inserted : " ;
+                 cin >> x;
                 hashArray.insert(x);
                 break;
             }
             case 2:
             {
-                cout << "The elements in hashArray are : " ;
+                 cout << "The elements in hashArray are : " ;
                 hashArray.display();
                 break;
             }
